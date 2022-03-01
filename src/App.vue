@@ -81,11 +81,11 @@
   </q-layout>
 </template>
 
-<script>
-import { ref } from 'vue'
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
-export default {
+export default defineComponent({
   name: 'LayoutDefault',
 
   components: {
@@ -97,5 +97,5 @@ export default {
       leftDrawerOpen: ref(false)
     }
   }
-}
+})
 </script>
