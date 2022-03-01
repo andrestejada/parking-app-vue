@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$MmN92u5FVupnZNxL9I2eyu6k3KYYVhf4VN8gZzIwWtdBy1llNjrGG",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "parquerar": [
+    {
+      "id": 1,
+      "nombre": "moto"
+    },
+    {
+      "id": 2,
+      "nombre": "prueba1"
+    }
+  ]
+}
