@@ -5,7 +5,7 @@
         <q-icon name="local_parking" />
       </q-avatar>
 
-      <q-toolbar-title>Parking App</q-toolbar-title>
+      <q-toolbar-title data-testid="title" >Parking App</q-toolbar-title>
 
       <q-btn flat round dense icon="logout" label="Cerrar Sesión" />
     </q-toolbar>
@@ -14,8 +14,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { mapState } from 'vuex'
 
 export default defineComponent({
-  name: 'Navbar'
+  name: 'Navbar',
 })
 </script>

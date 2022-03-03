@@ -6,17 +6,18 @@
       "id": 1
     }
   ],
-  "posts": [
+  "vehicles": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "parquerar": [
+      "vehiculeType": "Moto",
+      "plate": "NOL38F",
+      "entryDate": "2022-03-02T20:46:41.677Z",
+      "id": 1
+    },
     {
-      "id": 2,
-      "nombre": "prueba1"
+      "vehiculeType": "Moto",
+      "plate": "MIK381",
+      "entryDate": "2022-03-02T20:58:13.304Z",
+      "id": 2
     }
   ]
 }
