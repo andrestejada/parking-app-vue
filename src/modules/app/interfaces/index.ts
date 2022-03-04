@@ -7,5 +7,5 @@ export interface Vehicle {
   id:number,
   plate:string,
   vehiculeType:string,
-  entryDate:Date
+  entryDate:Date |string
 }

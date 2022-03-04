@@ -4,6 +4,7 @@
       <div class="row items-center">
         <h6 class="text-h6">Tipo de vehiculo:</h6>
         <p class="text-body1 q-ml-sm">{{ vehicle.vehiculeType }}</p>
+        <q-icon size="1.5rem" :name="vehicle.vehiculeType==='Moto' ?'two_wheeler':'directions_car' " />
       </div>
       <div class="row items-center">
         <h6 class="text-h6">Placa:</h6>
@@ -27,6 +28,7 @@
 <script lang="ts">
 import { useQuasar } from "quasar";
 import { computed, defineComponent, PropType } from "vue";
+import { useStore } from "vuex";
 import { Vehicle } from "../../interfaces/index";
 import { calculateRate } from "../../utils/calculateRate";
 
@@ -38,7 +40,9 @@ export default defineComponent({
     },
   },
   setup(props) {
+    const store = useStore();
     const $q = useQuasar();
+
     function confirm () {
       $q.dialog({
         title: `El valor a pagar el vehiculo con placas ${props.vehicle.plate} es $ ${calculateRate(props.vehicle.entryDate,props.vehicle.vehiculeType)}`,
@@ -52,14 +56,8 @@ export default defineComponent({
         },
         persistent: true,
       }).onOk(() => {
-        // console.log('>>>> OK')
-      }).onOk(() => {
-        // console.log('>>>> second OK catcher')
-      }).onCancel(() => {
-        // console.log('>>>> Cancel')
-      }).onDismiss(() => {
-        // console.log('I am triggered on both OK and Cancel')
-      })
+        store.dispatch('vehicles/removeVehicle',props.vehicle)
+      })      
     }
     return {
       entryDate: computed(() =>
@@ -73,9 +71,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style scoped>
-.card-title {
-  margin: 0;
-}
-</style>

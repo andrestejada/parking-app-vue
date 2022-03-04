@@ -11,7 +11,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import FormParking from '../components/FormParking.vue'
+import FormParking from '../components/FormParking/FormParking.vue'
 import VehiclesList from '../components/VehiclesList/VehiclesList.vue'
 
 export default defineComponent({
