@@ -6,8 +6,8 @@ import { RootState } from '../../../store/index';
 
 
 const getters: GetterTree<AuthState, RootState> = {
-    someGetter( /* state */ ) {
-        // return true;
+    isAuthenticated( state ) {
+        return state.isAuthenticated;
     }
 }
 

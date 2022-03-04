@@ -1,10 +1,18 @@
 import { MutationTree } from 'vuex';
+import { User } from '../interfaces';
 import { AuthState } from './state';
 
 
 const mutation: MutationTree<AuthState> = {
-    someMutation( /* state: ExampleStateInterface */) {
-        // a line to prevent linter errors
+    loginSuccess( state: AuthState , user:User ) {
+        state.isAuthenticated = true;
+        state.user = user;
+    },
+
+    logOut(state: AuthState){
+        state.isAuthenticated=false;
+        state.user=null
+        localStorage.removeItem('accessToken')
     }
 }
 

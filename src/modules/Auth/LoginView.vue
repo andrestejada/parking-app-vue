@@ -5,6 +5,7 @@
       <q-separator color="secondary" size="3px" class="q-mb-lg" />  
       <q-form
         class="q-gutter-md q-mt-sm"
+        @submit.prevent="login"
       > 
       <q-input
         type="text"
@@ -25,6 +26,9 @@
         v-model="loginValues.password"
         :rules="[ val => val && val.length > 0 || 'La contraseña es obligatoria']"
       />
+       <div v-if="msgError" inline-actions class="text-white bg-red q-pa-md text-center">
+        {{msgError}}
+      </div>
       <div class="row justify-center" >
         <q-btn class="col-6" label="Iniciar Sesion" type="submit" color="secondary"/>
       </div>
@@ -35,6 +39,8 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useRouter } from 'vue-router';
+import { useStore } from 'vuex';
 import { isValidEmail } from './utils/emailValidation';
 interface LoginValues{
   email:string;
@@ -42,14 +48,27 @@ interface LoginValues{
 }
 export default defineComponent({
   setup() {
+    const store = useStore();
+    const router = useRouter()
     const initialValues:LoginValues = {
-      email:'',
-      password:''
+      email:'andres@correo.com',
+      password:'123456'
     }
     const loginValues = ref<LoginValues>({...initialValues});
+    const msgError = ref('')
     return{
+      msgError,
       loginValues,
-      isValidEmail
+      isValidEmail,
+      login:async()=>{
+        msgError.value=''
+        const {ok,msg} = await store.dispatch('auth/login',loginValues.value)
+        if(!ok){
+          msgError.value = msg
+          return
+        }
+        router.push({name:'app'})
+      }
     }
   },
 })

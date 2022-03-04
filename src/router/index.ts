@@ -1,12 +1,14 @@
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import DashBoard from '../modules/app/views/DashBoard.vue'
 import LoginView from '../modules/Auth/LoginView.vue'
+import { authGuard } from './auth-guard';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'App',
-    component: DashBoard
+    name: 'app',
+    component: DashBoard,
+    beforeEnter:[authGuard]
   },
   {
     path: '/auth',

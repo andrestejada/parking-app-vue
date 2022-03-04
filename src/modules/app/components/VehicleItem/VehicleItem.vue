@@ -45,7 +45,7 @@ export default defineComponent({
 
     function confirm () {
       $q.dialog({
-        title: `El valor a pagar el vehiculo con placas ${props.vehicle.plate} es $ ${calculateRate(props.vehicle.entryDate,props.vehicle.vehiculeType)}`,
+        title: `El valor a pagar del vehiculo con placas ${props.vehicle.plate} es $ ${calculateRate(props.vehicle.entryDate,props.vehicle.vehiculeType)}`,
         message: 'Esta seguro que deseas confirmar que el cliente realizo el pago?',
         cancel: {
           push:true,

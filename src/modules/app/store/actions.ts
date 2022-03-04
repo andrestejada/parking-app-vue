@@ -25,7 +25,7 @@ const actions: ActionTree<VehiclesState, RootState> = {
 
     async getAllVehicles({commit}){
         try {
-            const {data} = await vehiclesApi.get('/vehicles')
+            const {data} = await vehiclesApi.get('/vehicles',)
             commit('addAllVehicles',data); 
             commit('setCellsCarsInUse');
             commit('setCellsMotosInUse');

@@ -1,10 +1,15 @@
+import { User } from "../interfaces";
+
 export interface AuthState {
-  user: null;
+  user: null | User;
+  isAuthenticated:boolean,
+
 }
 
 function state(): AuthState {
   return {
-      user:null
+      user:null,
+      isAuthenticated:false
   }
 }
 

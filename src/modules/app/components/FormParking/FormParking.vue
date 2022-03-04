@@ -2,7 +2,7 @@
   <div class="form-container">
     <h4 class="text-h4 q-mb-sm">Ingresar Vehiculo</h4>
     <q-separator color="secondary" size="3px" class="q-mb-lg" />
-    <q-form @submit.prevent="onSubmit" class="q-gutter-md">
+    <q-form @submit.prevent="onSubmit" class="q-gutter-md" ref="form" @reset="onReset" >
       <q-select
         v-model="formValues.vehiculeType"
         :options="['Moto', 'Carro']"
@@ -58,13 +58,16 @@ export default defineComponent({
       plate: "",
       vehiculeType: "",
     };
-
+    const form = ref()
+  
     const formValues = ref<FormValues>({ ...initialValues });
     return {
+      form,
       formValues,
       msgError,
+      onReset:()=> formValues.value = {...initialValues},
       isValitePlate,
-      onSubmit: () => {
+      onSubmit: (event:Event) => {
         formValues.value.plate = formValues.value.plate.toUpperCase();
         msgError.value=''
         if(formValues.value.vehiculeType === "Moto" ){
@@ -84,13 +87,15 @@ export default defineComponent({
         }
 
         store.dispatch("vehicles/saveVehicles", formValues.value);
-        msgError.value = ''
+        msgError.value = '';
         $q.notify({
           message: 'EL Vehiculo se guardo Correctamente',
           color: 'secondary',
           timeout:3000,
         })
-      },
+        form.value.resetValidation()
+        form.value.reset()
+      }
     };
   },
 });
