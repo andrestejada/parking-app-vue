@@ -19,7 +19,7 @@ export default defineComponent({
     VehicleItem,
   },
   setup() {
-    const store = useStore()
+    const store = useStore();
     store.dispatch('vehicles/getAllVehicles')
     return{
       allVehicles:computed(()=>store.getters['vehicles/getAllVehicles'])

@@ -1,14 +1,14 @@
 import VehiclesList from './VehiclesList.vue'
 import { mount } from '@vue/test-utils';
 import { createStore } from 'vuex';
-import vehicle from '../../store'
-import state from '../../store/state';
+import vehicles from '../../store'
+import { VehiclesState } from '../../store/state';
 
 
-const createVuexStore =(initialState:any)=>createStore({
+const createVuexStore =(initialState:VehiclesState)=>createStore({
   modules:{
-    vehicle:{
-      ...vehicle,
+    vehicles:{
+      ...vehicles,
       state:{
         ...initialState
       }
@@ -30,7 +30,6 @@ const store = createVuexStore({
 });
 
 describe('testing in the vehicleList component', () => {
-
   const wrapper=mount(VehiclesList,{
     global:{
       plugins:[store]

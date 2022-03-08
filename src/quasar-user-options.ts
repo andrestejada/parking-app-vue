@@ -7,6 +7,7 @@ import {
 } from 'quasar'
 // To be used on app.use(Quasar, { ... })
 export default {
+  test:{},
   config: {},
   plugins: {
     Dialog,

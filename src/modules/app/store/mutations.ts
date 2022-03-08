@@ -1,14 +1,12 @@
 import { MutationTree } from 'vuex';
 import { VehiclesState } from './state';
 import { Vehicle } from '../interfaces/index';
-import state from './state';
 
 
 
 const mutation: MutationTree<VehiclesState> = {
     addVehicle(state: VehiclesState , vehicle:Vehicle ) {
-        state.allVehicles = [...state.allVehicles,vehicle]
-        
+        state.allVehicles = [...state.allVehicles,vehicle]        
     },
 
     addBikeCell(state: VehiclesState){

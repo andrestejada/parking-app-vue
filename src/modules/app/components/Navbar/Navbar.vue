@@ -5,7 +5,7 @@
         <q-icon name="local_parking" />
       </q-avatar>
 
-      <q-toolbar-title data-testid="title" >Parking App</q-toolbar-title>
+      <q-toolbar-title data-testid="title"  >Parking App</q-toolbar-title>
 
       <q-btn flat round dense icon="logout" label="Cerrar Sesión" @click="logOut"/>
     </q-toolbar>

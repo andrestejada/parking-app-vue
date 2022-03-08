@@ -21,6 +21,7 @@
         icon-right="paid"
         label="Cobrar"
       />
+     
     </q-card-section>
   </q-card>
 </template>
@@ -31,7 +32,6 @@ import { computed, defineComponent, PropType } from "vue";
 import { useStore } from "vuex";
 import { Vehicle } from "../../interfaces/index";
 import { calculateRate } from "../../utils/calculateRate";
-
 export default defineComponent({
   props: {
     vehicle: {
@@ -44,6 +44,7 @@ export default defineComponent({
     const $q = useQuasar();
 
     function confirm () {
+      console.log('!!!!!!!!!!!confirm!!!!!!!!!!!!')
       $q.dialog({
         title: `El valor a pagar del vehiculo con placas ${props.vehicle.plate} es $ ${calculateRate(props.vehicle.entryDate,props.vehicle.vehiculeType)}`,
         message: 'Esta seguro que deseas confirmar que el cliente realizo el pago?',

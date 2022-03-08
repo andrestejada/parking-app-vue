@@ -137,6 +137,18 @@
       "plate": "WAS74Q",
       "entryDate": "2022-03-04T16:51:11.928Z",
       "id": 51
+    },
+    {
+      "vehiculeType": "Moto",
+      "plate": "EDT87E",
+      "entryDate": "2022-03-04T17:52:01.898Z",
+      "id": 52
+    },
+    {
+      "vehiculeType": "Carro",
+      "plate": "NOL389",
+      "entryDate": "2022-03-04T18:37:42.821Z",
+      "id": 53
     }
   ]
 }

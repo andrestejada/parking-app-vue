@@ -12,6 +12,7 @@
         :rules="[(val) => (val && val.length > 0) || 'Este campo es requerido']"
       />
       <q-input
+        id="tipoDeVehiculo"
         v-model="formValues.plate"
         class="text-uppercase"
         maxlength="6"
@@ -43,11 +44,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from "vue";
-import { useStore } from "vuex";
+import { Store, useStore } from "vuex";
 import { FormValues } from "../../interfaces";
 import { isValitePlate } from '../../utils/plateValidation';
 import { availableCellBikes, availableCellCars } from "../../utils/FormValidations";
 import { useQuasar } from "quasar";
+import { RootState } from "@/store";
 
 export default defineComponent({
   setup() {
@@ -59,7 +61,6 @@ export default defineComponent({
       vehiculeType: "",
     };
     const form = ref()
-  
     const formValues = ref<FormValues>({ ...initialValues });
     return {
       form,
@@ -67,7 +68,7 @@ export default defineComponent({
       msgError,
       onReset:()=> formValues.value = {...initialValues},
       isValitePlate,
-      onSubmit: (event:Event) => {
+      onSubmit: () => {
         formValues.value.plate = formValues.value.plate.toUpperCase();
         msgError.value=''
         if(formValues.value.vehiculeType === "Moto" ){

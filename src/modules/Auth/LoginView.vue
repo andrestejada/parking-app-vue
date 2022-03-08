@@ -51,8 +51,8 @@ export default defineComponent({
     const store = useStore();
     const router = useRouter()
     const initialValues:LoginValues = {
-      email:'andres@correo.com',
-      password:'123456'
+      email:'',
+      password:''
     }
     const loginValues = ref<LoginValues>({...initialValues});
     const msgError = ref('')
