@@ -1,6 +1,6 @@
 <template>
   <div class="form-container">
-    <h4 class="text-h4 q-mb-sm">Ingresar Vehiculo</h4>
+    <h4 role="ingresa-vehiculo" class="text-h4 q-mb-sm">Ingresar Vehiculo</h4>
     <q-separator color="secondary" size="3px" class="q-mb-lg" />
     <q-form @submit.prevent="onSubmit" class="q-gutter-md" ref="form" @reset="onReset" >
       <q-select
@@ -42,14 +42,13 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" >
 import { defineComponent, ref } from "vue";
-import { Store, useStore } from "vuex";
+import {  useStore } from "vuex";
 import { FormValues } from "../../interfaces";
 import { isValitePlate } from '../../utils/plateValidation';
 import { availableCellBikes, availableCellCars } from "../../utils/FormValidations";
 import { useQuasar } from "quasar";
-import { RootState } from "@/store";
 
 export default defineComponent({
   setup() {
@@ -70,7 +69,9 @@ export default defineComponent({
       isValitePlate,
       onSubmit: () => {
         formValues.value.plate = formValues.value.plate.toUpperCase();
+
         msgError.value=''
+
         if(formValues.value.vehiculeType === "Moto" ){
           const isAvalibleCellsBikes = availableCellBikes(store.state.vehicles.cellsBikesInUse);        
           if (!isAvalibleCellsBikes) {

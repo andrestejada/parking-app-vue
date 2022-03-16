@@ -1,7 +1,7 @@
-import { ActionTree } from 'vuex';
+import {  ActionTree } from 'vuex';
 import { RootState } from '../../../store/index';
 import { VehiclesState } from './state';
-import vehiclesApi from '../../../api/vehicles';
+import {vehiclesApi} from '../../../api/vehicles';
 import { FormValues, Vehicle } from '../interfaces/index';
 
 
@@ -11,7 +11,6 @@ const actions: ActionTree<VehiclesState, RootState> = {
             const entryDate = new Date()
             const {data} =await vehiclesApi.post('/vehicles',{vehiculeType,plate,entryDate})
             commit('addVehicle',data)
-
             if(vehiculeType ==="Moto"){
                 commit('addBikeCell')
             }else{

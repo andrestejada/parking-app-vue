@@ -7,10 +7,14 @@ import {
 } from 'quasar'
 // To be used on app.use(Quasar, { ... })
 export default {
-  test:{},
+  test:{
+    
+  },
+  
   config: {},
   plugins: {
     Dialog,
     Notify
-  }
+  },
+
 }
